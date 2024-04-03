@@ -23,7 +23,6 @@ fun Route.ticketRoute(repositoryEvent: RepositoryEvent,  repositoryUser: Reposit
                 val purchasedTicket = event.tickets.firstOrNull { it.price == ticketRequest.price }
                 if (purchasedTicket != null) {
                     val user = users.find { it.userId == ticketRequest.userId }
-
                     if (user != null) {
                         // Transfer the ticket from the event to the user
                         event.tickets.remove(purchasedTicket)
@@ -42,7 +41,7 @@ fun Route.ticketRoute(repositoryEvent: RepositoryEvent,  repositoryUser: Reposit
         }
     }
 
-    route("/ticket/get/{userId"){
+    route("/ticket-get/{userId}"){
         get {
             val users = repositoryUser.getAllUsers()
             val userId = call.parameters["userId"]

@@ -1,19 +1,16 @@
-package com.example.data.models
+package com.example.data.requests
 
+import com.example.data.models.Ticket
 import kotlinx.serialization.Serializable
-import org.bson.BsonDateTime
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 
 @Serializable
-data class Event(
+data class EventRequest(
     val title: String,
     val description: String,
     val venue: String,
     val dateTime: String,
     val tickets: MutableList<Ticket>,
-//    val noOfTickets: Int,
-    @BsonId
-    val eventId: String = ObjectId().toString()
+    val eventId:String= ObjectId().toString()
 )
-

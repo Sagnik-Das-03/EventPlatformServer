@@ -12,18 +12,8 @@ import io.ktor.server.routing.*
 fun Route.userRoute(repositoryUser: RepositoryUser){
     route("/get-users"){
         get {
-           val userId = call.receive<UserRequest>().id
-            val user = repositoryUser.getUserForId(userId)
-            user?.let {
-                call.respond(
-                    HttpStatusCode.OK,
-                    SimpleResponse(true, "User successfully retrieved", it)
-                )
-            } ?: call.respond(
-                HttpStatusCode.OK,
-                SimpleResponse(true, "There is no employee with this id", Unit)
-
-            )
+           val users = repositoryUser.getAllUsers()
+            call.respond(HttpStatusCode.OK, users)
         }
     }
     route("/add-or-update-user"){

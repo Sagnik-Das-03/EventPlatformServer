@@ -13,6 +13,7 @@ data class User(
     val mail: String,
     val datetime: String = LocalDateTime.now().format(formatter).toString(),
     val tickets: MutableList<Ticket>,
+//    val quantity: Int,
     @BsonId
     val userId: String = ObjectId().toString()
 )

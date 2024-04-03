@@ -20,7 +20,7 @@ fun Application.configureRouting() {
         val repositoryUser by KoinJavaComponent.inject<RepositoryUser>(RepositoryUser::class.java)
         val repositoryEvent by KoinJavaComponent.inject<RepositoryEvent>(RepositoryEvent::class.java)
         userRoute(repositoryUser = repositoryUser)
-        eventRoutes()
+        eventRoutes(repositoryEvent = repositoryEvent)
         ticketRoute(repositoryEvent= repositoryEvent, repositoryUser = repositoryUser)
     }
 }
