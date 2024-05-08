@@ -36,23 +36,14 @@ fun Route.userRoute(repositoryUser: RepositoryUser){
         }
     }
     route("/delete-user"){
-        post {
-            val request = try {
-                call.receive<UserRequest>()
-            } catch (e: ContentTransformationException) {
-                call.respond(HttpStatusCode.BadRequest)
-                return@post
-            }
-            if (repositoryUser.deleteUser(request.id)) {
-                call.respond(
-                    HttpStatusCode.OK,
-                    SimpleResponse(true, "User successfully deleted", Unit)
-                )
+        delete("{userId}") {
+            val events = repositoryUser.getAllUsers()
+            val eventId = call.parameters["eventId"]
+            if (eventId != null) {
+                repositoryUser.deleteUser(eventId)
+                call.respond(HttpStatusCode.OK, "Event deleted successfully")
             } else {
-                call.respond(
-                    HttpStatusCode.OK,
-                    SimpleResponse(true, "User not found", Unit)
-                )
+                call.respond(HttpStatusCode.NotFound, "Event not found")
             }
         }
     }
