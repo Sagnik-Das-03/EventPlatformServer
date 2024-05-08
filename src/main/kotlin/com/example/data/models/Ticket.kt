@@ -11,7 +11,6 @@ private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-
 @Serializable
 data class Ticket(
     val name: String,
-    val eventId: String = "",
     val venue: String,
     val datetime: String = LocalDateTime.now().format(formatter).toString(),
     val qrCode: String,

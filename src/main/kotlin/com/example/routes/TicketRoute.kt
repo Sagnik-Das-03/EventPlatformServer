@@ -2,6 +2,7 @@ package com.example.routes
 
 import com.example.data.local.RepositoryEvent
 import com.example.data.local.RepositoryUser
+import com.example.data.models.Ticket
 import com.example.data.requests.TicketRequest
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -19,16 +20,27 @@ fun Route.ticketRoute(repositoryEvent: RepositoryEvent,  repositoryUser: Reposit
             val event = events.find {
                 it.eventId == ticketRequest.eventId
             }
+            if (event != null) {
+                println(event.eventId)
+            }
             if(event != null){
                 val purchasedTicket = event.tickets.firstOrNull { it.price == ticketRequest.price }
                 if (purchasedTicket != null) {
                     val user = users.find { it.userId == ticketRequest.userId }
                     if (user != null) {
+                        val bookedTicket = Ticket(
+                            name = "${event.title}(${purchasedTicket.name})",
+                            venue = purchasedTicket.venue,
+                            qrCode = event.eventId,
+                            couponCode = purchasedTicket.couponCode,
+                            datetime = purchasedTicket.datetime,
+                            price = purchasedTicket.price,
+                            transactionId = purchasedTicket.transactionId
+                        )
                         // Transfer the ticket from the event to the user
-                        event.tickets.remove(purchasedTicket)
-                        user.tickets.add(purchasedTicket)
-
-                        call.respond(HttpStatusCode.OK, purchasedTicket)
+                        user.tickets.add(bookedTicket)
+                        repositoryUser.addOrUpdateUser(user)
+                        call.respond(HttpStatusCode.OK, bookedTicket)
                     } else {
                         call.respond(HttpStatusCode.BadRequest, "User not found")
                     }

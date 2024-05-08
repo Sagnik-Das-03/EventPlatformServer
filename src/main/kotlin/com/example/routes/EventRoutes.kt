@@ -28,6 +28,7 @@ fun Route.eventRoutes(repositoryEvent: RepositoryEvent){
                 call.respond(HttpStatusCode.BadRequest)
                 return@post
             }
+
             if (repositoryEvent.addEvent(request)) {
                 call.respond(
                     HttpStatusCode.OK,
