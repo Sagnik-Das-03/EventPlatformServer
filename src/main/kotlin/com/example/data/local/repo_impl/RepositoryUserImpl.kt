@@ -10,7 +10,7 @@ class RepositoryUserImpl(
     private val db: CoroutineDatabase
 ): RepositoryUser {
 
-    private val users = db.getCollection<User>()
+    private val users = db.getCollection<User>("user")
     override suspend fun getAllUsers() : List<User> {
         return users.find().ascendingSort(User::name).toList()
     }

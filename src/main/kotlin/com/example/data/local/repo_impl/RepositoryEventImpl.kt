@@ -10,7 +10,7 @@ class RepositoryEventImpl(
     private val db: CoroutineDatabase
 ): RepositoryEvent {
 
-    private val events = db.getCollection<Event>()
+    private val events = db.getCollection<Event>("event")
     override suspend fun getAllEvent(): List<Event> {
         return events.find().ascendingSort(Event::title).toList()
     }
