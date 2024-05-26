@@ -1,4 +1,4 @@
-package com.example.data.requests
+package com.eventticketsystem.data.requests
 
 data class SimpleResponse<T>(
     val status: Boolean,

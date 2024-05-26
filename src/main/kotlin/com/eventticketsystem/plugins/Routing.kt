@@ -1,14 +1,13 @@
-package com.example.plugins
+package com.eventticketsystem.plugins
 
-import com.example.data.local.RepositoryEvent
-import com.example.data.local.RepositoryUser
-import com.example.di.mainModule
-import com.example.routes.eventRoutes
-import com.example.routes.home
-import com.example.routes.ticketRoute
-import com.example.routes.userRoute
+import com.eventticketsystem.data.local.RepositoryEvent
+import com.eventticketsystem.data.local.RepositoryUser
+import com.eventticketsystem.di.mainModule
+import com.eventticketsystem.routes.eventRoutes
+import com.eventticketsystem.routes.home
+import com.eventticketsystem.routes.ticketRoute
+import com.eventticketsystem.routes.userRoute
 import io.ktor.server.application.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent

@@ -1,6 +1,6 @@
-package com.example.data.local
+package com.eventticketsystem.data.local
 
-import com.example.data.models.Event
+import com.eventticketsystem.data.models.Event
 
 interface RepositoryEvent {
     suspend fun getAllEvent(): List<Event>

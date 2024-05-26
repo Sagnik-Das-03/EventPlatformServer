@@ -1,9 +1,9 @@
-package com.example.routes
+package com.eventticketsystem.routes
 
-import com.example.data.local.RepositoryEvent
-import com.example.data.local.RepositoryUser
-import com.example.data.models.Ticket
-import com.example.data.requests.TicketRequest
+import com.eventticketsystem.data.local.RepositoryEvent
+import com.eventticketsystem.data.local.RepositoryUser
+import com.eventticketsystem.data.models.Ticket
+import com.eventticketsystem.data.requests.TicketRequest
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*

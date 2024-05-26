@@ -1,21 +1,19 @@
-package com.example.data.models
+package com.eventticketsystem.data.models
 
 import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import kotlin.random.Random
 
 private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
 @Serializable
-data class Ticket(
+data class User(
     val name: String,
-    val venue: String,
+    val mail: String,
     val datetime: String = LocalDateTime.now().format(formatter).toString(),
-    val qrCode: String,
-    val couponCode: String,
-    val price: Int,
+    val tickets: MutableList<Ticket>,
+//    val quantity: Int,
     @BsonId
-    val transactionId: String = ObjectId().toString()
+    val userId: String = ObjectId().toString()
 )

@@ -1,8 +1,7 @@
-package com.example.data.local.repo_impl
+package com.eventticketsystem.data.local.repo_impl
 
-import com.example.data.local.RepositoryUser
-import com.example.data.models.User
-import org.bson.types.ObjectId
+import com.eventticketsystem.data.local.RepositoryUser
+import com.eventticketsystem.data.models.User
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 

@@ -1,9 +1,9 @@
-package com.example.di
+package com.eventticketsystem.di
 
-import com.example.data.local.RepositoryEvent
-import com.example.data.local.RepositoryUser
-import com.example.data.local.repo_impl.RepositoryEventImpl
-import com.example.data.local.repo_impl.RepositoryUserImpl
+import com.eventticketsystem.data.local.RepositoryEvent
+import com.eventticketsystem.data.local.RepositoryUser
+import com.eventticketsystem.data.local.repo_impl.RepositoryEventImpl
+import com.eventticketsystem.data.local.repo_impl.RepositoryUserImpl
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.reactivestreams.KMongo

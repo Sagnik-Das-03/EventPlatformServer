@@ -1,6 +1,6 @@
-package com.example
+package com.eventticketsystem
 
-import com.example.plugins.*
+import com.eventticketsystem.plugins.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*

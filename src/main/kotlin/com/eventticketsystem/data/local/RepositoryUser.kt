@@ -1,6 +1,6 @@
-package com.example.data.local
+package com.eventticketsystem.data.local
 
-import com.example.data.models.User
+import com.eventticketsystem.data.models.User
 
 interface RepositoryUser {
     suspend fun getAllUsers() : List<User>

@@ -1,9 +1,7 @@
-package com.example
+package com.eventticketsystem
 
-import com.example.di.mainModule
-import com.example.plugins.*
+import com.eventticketsystem.plugins.*
 import io.ktor.server.application.*
-import org.koin.core.context.startKoin
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)

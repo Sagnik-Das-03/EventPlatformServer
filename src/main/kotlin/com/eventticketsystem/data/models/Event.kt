@@ -1,7 +1,6 @@
-package com.example.data.models
+package com.eventticketsystem.data.models
 
 import kotlinx.serialization.Serializable
-import org.bson.BsonDateTime
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 

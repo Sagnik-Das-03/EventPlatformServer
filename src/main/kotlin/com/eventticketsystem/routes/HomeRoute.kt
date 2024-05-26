@@ -1,4 +1,4 @@
-package com.example.routes
+package com.eventticketsystem.routes
 
 import io.ktor.server.application.*
 import io.ktor.server.response.*
